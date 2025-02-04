@@ -122,6 +122,6 @@ Now that your repository is available online, at https://github.com , you can wo
 
 **Note**: when you try to click the "Push origin" button while you do not have permission to make edits in a repository you are given the option to "fork" the repository. To fork a repository is to make a copy of it. This copy will remain linked to the original repository so you can continue to pull changes that are made to it. Similarly you can ask the owner of the original repository to copy your changes to their repository using something called a "pull request". Forking and pull requests are advanced topics, however, that are beyond the scope of this workshop.
 
-## Part 3: advanced git use
+## Part 3: When things go wrong
 
-TODO: Branching
+What to do when two users have edited the same file in the same place?
