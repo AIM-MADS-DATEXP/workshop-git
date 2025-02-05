@@ -22,7 +22,7 @@ Git can not only track modifications *you* have made to *your own* files, howeve
 
 In this hands on workshop, you will learn how to work with git. We will use the GitHub Desktop tool, though the basic concepts also work with the command line git client.
 
-## Part 1: basic git use (single user)
+## Part 1: basic git use
 
 ### 1.1. Creating a new repository and committing our first changes
 
@@ -71,7 +71,7 @@ The line above this line is empty.
 5. Commit the change.
 
 
-## Interlude: basic git use (single user) with Jupyter notebooks
+## Interlude: Jupyter notebooks
 
 If you can run Jupyter notebooks locally, be sure to try tracking changes in them using git:
 
@@ -84,7 +84,7 @@ If you can run Jupyter notebooks locally, be sure to try tracking changes in the
 7. Run the code in your notebook again. Pay particular attention to the fact that nothing appears to have changed: your notebook contains a single code block and a line containing the output of that code - which hasn't changed. Save your notebook.
 8. Return to GitHub Desktop yet again and notice the line containing execution_count has changed even though nothing, really, has changed. Think about what this means for doing data science work using Jupyter notebooks and tracking the changes in git.
 
-## Part 2: basic git use (multiple users)
+## Part 2: Collaborating with other users
 
 So far we have used git to track changes in files we have stored on our own computer. While this is very useful, git can also help you track changes in situations where you're working on a single file or single project together with somebody else (in fact, this is what it was specifically made for).
 
@@ -124,4 +124,26 @@ Now that your repository is available online, at https://github.com , you can wo
 
 ## Part 3: When things go wrong
 
-What to do when two users have edited the same file in the same place?
+Now that you are collaborating with other users, we are opening ourselves to the risk that multiple users simultaneously make changes to the same file. Luckily git is very clever about combining changes, but sometimes there really isn't anything it can do when two or more changes have been made that conflict with each other. In such cases you will have to fix these so-called "merge conflicts" yourself.
+
+For this part of the workshop, you will once again work with a partner on the same repository.
+
+1. First of all make sure both of you have the latest version of the repository by pulling the latest changes.
+2. Now each of you should make a change to the same line of the same file. Maybe add your first name to the first line of the same file - that usually works.
+3. Commit your changes but do **not** push your changes yet until **both** of you have committed your changes.
+4. Now attempt to push your changes. The first person to push their changes will succeed, of course.
+5. The second person will be told, by GitHub Desktop, to pull from the origin (if you do not see this message, simply attempt to push - GitHub Desktop will quickly figure out there are changes that need to be pulled).
+6. A dialog appears telling you there are conflicts that need to be resolved (confusingly it may state the conflicts are resolved before it figures out that, no the conflicts need to be resolved manually).
+7. At this point, the option "Open in editor" is likely grayed out because you have not configured an editor for your GitHub Desktop application. This is inconvenient because now you cannot actually resolve the conflict.
+8. Instead you will need to open the conflicting file in a text editor. You will notice the conflicting edits are surrounded by lines that start with greater than or lesser than symbols. It is fairly obvious where the conflicting changes are (and it's probably easier to find them yourself than it is to decribe this in writing). Find them and resolve them somehow. When you are done, remove the lines that mark out the conflicts until you have a version of the file your partner and you are both satisfied with.
+9. When you save the file, GitHub Desktop will notice you have resolved the conflict. Click the "Continue merge" button. It's possible clicking this button does not work in some versions of GitHub Desktop. In that case stop the GitHub Desktop application and start it again. Then click the "Continue merge" button. "Continue merge" will create a new commit for the changes you made.
+10. Open the list of changes by clicking the History button. You will find the changes you made in step 8 have automatically been added to the list of commits.
+11. Click the "Changes" button and then push the changes by clicking the "Push origin" button.
+12. Optionally your partner can pull the latest changes and verify that the conflicts have, indeed, been resolved.
+
+**Note**: in this workshop your file only contains a single conflicting change. However, in practice merge conflicts often contain multiple conflicting changes, sometimes in multiple files. You will have to resolve all of these changes before you can continue.
+
+**Note**: it may be useful to set up a default editor for GitHub Desktop. This allows you to resolve conflicts straight from the GitHub Desktop program.
+
+**Note**: Jupyter notebooks are very prone to merge conflicts. If you collaborate on a notebook with a partner and both of you run the same code, the line that contains information on when the code was last run, will conflict. Unfortunately there really isn't an easy solution for this. You will have to be very, very careful when collaborating on data science projects and it's probably best if each collaborator works in their own notebook file.
+
